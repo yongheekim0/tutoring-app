@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Lesson = require('../models/lesson');
-const Tutor = require('../models/tutor');
-const { tutors } = require('./tutors');
+const User = require('../models/user');
+const { users } = require('./tutors');
 const tutor = require('../models/tutor');
 
 require('dotenv').config();
@@ -14,17 +14,17 @@ require('../config/passport');
 
 // };
 
-const seedDB = async () => {
-  await Tutor.deleteMany({});
-  tutors.forEach(async t => {
-    const tutor = new Tutor({
-      name: t.name,
-      photo: t.picture,
-      about: t.about,
-      language: 'English',
-    });
-    await tutor.save();
-  });
-};
+// const seedDB = async () => {
+//   await User.deleteMany({});
+//   users.forEach(async u => {
+//     const user = new User({
+//       name: u.name,
+//       photo: u.picture,
+//       about: u.about,
+//       language: 'English',
+//     });
+//     await user.save();
+//   });
+// };
 
-seedDB();
+// seedDB();

@@ -23,11 +23,11 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    interest: {
+    interest: [{
       type: String,
       enum: ['English', 'Mandarin', 'Fench', 'Japanese', 'Korean', 'Spanish'],
       lowercase: true,
-    },
+    }],
     photo: String,
     googleId: {
       type: String,

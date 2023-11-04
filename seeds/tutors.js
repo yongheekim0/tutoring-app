@@ -1,4 +1,4 @@
-module.exports.tutors = [
+module.exports.users = [
   {
     _id: '6545a0168f9862027f74c9a2',
     index: 0,

@@ -6,14 +6,36 @@
   <label for="name">Name: </label>
   <input type="text" id="name" name="name" value="<%= user.name %>" required />
   <br />
-  <label for="interest">What's your interest?</label>
-  <select name="interest" id="interest">
-    <option value="Science">Science</option>
-    <option value="Language" selected>Language</option>
-    <option value="Math">Math</option>
-    <option value="Self Development">Self Development</option>
-    <option value="Others">Others</option>
-  </select>
+
+  <fieldset>
+    <legend>What languages are you intereted in?</legend>
+
+    <div>
+      <input type="checkbox" id="interest" name="interest" checked />
+      <label for="interest">English</label>
+    </div>
+    <div>
+      <input type="checkbox" id="interest" name="interest"  />
+      <label for="interest">Mandarin</label>
+    </div>
+    <div>
+      <input type="checkbox" id="interest" name="interest"  />
+      <label for="interest">French</label>
+    </div>
+    <div>
+      <input type="checkbox" id="interest" name="interest"  />
+      <label for="interest">Spanish</label>
+    </div>
+    <div>
+      <input type="checkbox" id="interest" name="interest"  />
+      <label for="interest">Japanese</label>
+    </div>
+    <div>
+      <input type="checkbox" id="interest" name="interest"  />
+      <label for="interest">Korean</label>
+    </div>
+  </fieldset>
+
   <br />
   <label for="email">Email: </label>
   <input
