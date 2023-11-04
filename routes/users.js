@@ -4,13 +4,13 @@ const User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function (req, res) {
-  res.render('users/index', { title: 'my page' });
+  res.render('users/index');
 });
 router.get('/new', function (req, res) {
   if (req.user.isProfileCreated) {
     res.redirect('/');
   } else {
-    res.render('users/new', { title: 'Register your info' });
+    res.render('users/new');
   }
 });
 
