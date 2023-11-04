@@ -11,6 +11,7 @@ const tutorSchema = new Schema(
     ],
     photo: String,
     about: String,
+    skills: String,
   },
   { timestamps: true }
 );
@@ -24,7 +25,7 @@ const userSchema = new Schema(
     },
     interest: {
       type: String,
-      enum: ['Science', 'Language', 'Math', 'Self Develpment', 'Others'],
+      enum: ['English', 'Mandarin', 'Fench', 'Japanese', 'Korean', 'Spanish'],
       lowercase: true,
     },
     photo: String,
