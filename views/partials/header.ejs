@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% if(user) {%>
+    <a href="/logout">LOG OUT</a>
+    <a href="/tutors">Become a tutor</a>
+
+    <%} else { %>
+    <a href="/auth/google" class="login">LOG IN</a>
+    <% } %>
