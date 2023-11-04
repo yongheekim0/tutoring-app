@@ -1,5 +1,30 @@
 <%- include('../partials/header') %>
 
-<h1><%= title  %></h1>
+<h1><%= title %></h1>
+
+<form action="/" method="POST">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name" value="<%= user.name %>" required />
+  <br />
+  <label for="interest">What's your interest?</label>
+  <select name="interest" id="interest">
+    <option value="Science">Science</option>
+    <option value="Language" selected>Language</option>
+    <option value="Math">Math</option>
+    <option value="Self Development">Self Development</option>
+    <option value="Others">Others</option>
+  </select>
+  <br />
+  <label for="email">Email: </label>
+  <input
+    type="email"
+    id="email"
+    size="35 "
+    value="<%= user.email  %>"
+    required
+  />
+  <br />
+  <input type="submit" value="Register" />
+</form>
 
 <%- include('../partials/footer') %>

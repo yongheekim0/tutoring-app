@@ -10,7 +10,7 @@ const userSchema = new Schema(
     },
     interest: {
       type: String,
-      enum: ['Science', 'Language', 'Math', 'Self Develpment'],
+      enum: ['Science', 'Language', 'Math', 'Self Develpment', 'Others'],
       lowercase: true,
     },
     photo: String,
