@@ -11,14 +11,13 @@ const tutorSchema = new Schema(
       {
         type: String,
         enum: ['English', 'Mandarin', 'Fench', 'Japanese', 'Korean', 'Spanish'],
-        required: true,
       },
     ],
     photo: String,
+    about: String,
     user: {
       type: Schema.Types.ObjectId,
       ref: 'User',
-      required: true,
     },
   },
   { timestamps: true }

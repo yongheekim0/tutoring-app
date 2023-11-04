@@ -8,6 +8,10 @@ const lessonSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'Tutor',
   },
+  tutee: {
+    type: Schema.Types.ObjectId,
+    ref: 'Tutee',
+  },
 });
 
 module.exports = mongoose.model('Lesson', lessonSchema);
