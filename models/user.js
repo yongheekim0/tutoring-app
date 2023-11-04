@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema(
   {
     name: String,
-    isProfileCeated: {
+    isProfileCreated: {
       type: Boolean,
       default: false,
     },
