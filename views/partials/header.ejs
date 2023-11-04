@@ -6,8 +6,9 @@
   </head>
   <body>
     <% if(user) {%>
+      <a href="/">Home</a>
+      <a href="/users">My Page</a>
     <a href="/logout">LOG OUT</a>
-    <a href="/tutors">Become a tutor</a>
 
     <%} else { %>
     <a href="/auth/google" class="login">LOG IN</a>

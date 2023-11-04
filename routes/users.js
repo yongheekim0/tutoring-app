@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 /* GET users listing. */
 router.get('/', function (req, res) {
-  res.render('users/mypage', { title: 'my page' });
+  res.render('users/index', { title: 'my page' });
 });
 router.get('/new', function (req, res) {
   if (req.user.isProfileCreated) {
