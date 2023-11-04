@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <% if(user && user.isProfileCreated) {%>
+    <a href="/">Home</a>
+    <a href="/users">My Page</a>
+    <a href="/logout">LOG OUT</a>
+    <%} else if (user) { %>
+    <a href="/logout">LOG OUT</a>
+    <%} else { %>
+    <a href="/auth/google">LOG IN</a>
+    <% } %>
+    <%- body %>
+  </body>
+</html>
+

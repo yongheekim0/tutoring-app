@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var session = require('express-session');
 var passport = require('passport');
+var ejsMate = require('ejs-mate')
 
 require('dotenv').config();
 // connect to the database with AFTER the config vars are processed
@@ -18,6 +19,7 @@ var tutorsRouter = require('./routes/tutors');
 var app = express();
 
 // view engine setup
+app.engine('ejs', ejsMate)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
