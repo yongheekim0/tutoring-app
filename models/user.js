@@ -18,7 +18,8 @@ const tutorSchema = new Schema(
 
 const userSchema = new Schema(
   {
-    name: String,
+    firstName: String,
+    lastName: String,
     isProfileCreated: {
       type: Boolean,
       default: false,

@@ -24,7 +24,8 @@ passport.use(
         if (user) return cb(null, user);
         // We have a new user via OAuth!
         user = await User.create({
-          name: profile.displayName,
+          firstName: profile.name.givenName,
+          lastName: profile.name.familyName,
           googleId: profile.id,
           email: profile.emails[0].value,
           avatar: profile.photos[0].value,
