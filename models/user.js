@@ -19,8 +19,14 @@ const tutorSchema = new Schema(
 
 const userSchema = new Schema(
   {
-    firstName: String,
-    lastName: String,
+    firstName: {
+      type: String,
+      required: [true, 'Firstname cannot be blanked']
+    },
+    lastName: {
+      type: String,
+      required: [true, 'Lastname cannot be blanked']
+    },
     isProfileCreated: {
       type: Boolean,
       default: false,

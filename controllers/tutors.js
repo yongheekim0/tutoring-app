@@ -1,27 +1,23 @@
 const User = require('../models/user');
-const languages = [
-  'English',
-  'Mandarin',
-  'French',
-  'Japanese',
-  'Korean',
-  'Spanish',
-];
+const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'];
 const index = async (req, res) => {
   const { tutor: tutors } = await User.find({ isATutor: true });
   res.render('tutors/index', { tutors });
 };
 
 const newTutor = (req, res) => {
-  res.render('tutors/new', { languages });
+  if (!req.user) {
+    res.redirect('/auth/google');
+  }
+    res.render('tutors/new', { languages });
 };
 
 const create = async (req, res) => {
-  await User.updateOne(
-    { googleId: req.user.googleId },
-    { isATutor: true, tutor: req.body }
-  );
-  res.redirect('/users');
+  if (!req.user) {
+    res.redirect('/auth/google');
+  }
+  await User.updateOne({ googleId: req.user.googleId }, { isATutor: true, tutor: req.body });
+  res.redirect('/');
 };
 
 module.exports = {
