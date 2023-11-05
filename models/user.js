@@ -40,7 +40,7 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    totor: tutorSchema,
+    tutor: tutorSchema,
   },
   {
     timestamps: true,

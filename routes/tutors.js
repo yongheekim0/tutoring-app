@@ -4,4 +4,6 @@ const tutorsControl = require('../controllers/tutors');
 
 router.get('/', tutorsControl.index);
 
+router.get('/new', tutorsControl.new)
+
 module.exports = router;

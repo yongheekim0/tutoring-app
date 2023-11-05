@@ -4,38 +4,31 @@
 
 <form action="/users" method="POST">
   <label for="name">First Name: </label>
-  <input type="text" id="name" name="firstName" value="<%= user.firstName %>" required />
+  <input
+    type="text"
+    id="name"
+    name="firstName"
+    value="<%= user.firstName %>"
+    required
+  />
   <label for="name">Last Name: </label>
-  <input type="text" id="name" name="lastName" value="<%= user.lastName %>" required />
+  <input
+    type="text"
+    id="name"
+    name="lastName"
+    value="<%= user.lastName %>"
+    required
+  />
   <br />
 
   <fieldset>
     <legend>What languages are you intereted in?</legend>
-
+    <% languages.forEach(language => { %>
     <div>
-      <input type="checkbox" id="interest" name="interest" checked />
-      <label for="interest">English</label>
+      <input type="checkbox" id="interest" name="interest"/>
+      <label for="interest"><%= language %></label>
     </div>
-    <div>
-      <input type="checkbox" id="interest" name="interest" />
-      <label for="interest">Mandarin</label>
-    </div>
-    <div>
-      <input type="checkbox" id="interest" name="interest" />
-      <label for="interest">French</label>
-    </div>
-    <div>
-      <input type="checkbox" id="interest" name="interest" />
-      <label for="interest">Spanish</label>
-    </div>
-    <div>
-      <input type="checkbox" id="interest" name="interest" />
-      <label for="interest">Japanese</label>
-    </div>
-    <div>
-      <input type="checkbox" id="interest" name="interest" />
-      <label for="interest">Korean</label>
-    </div>
+    <% }) %>
   </fieldset>
 
   <br />
@@ -50,5 +43,3 @@
   <br />
   <input type="submit" value="Register" />
 </form>
-
-
