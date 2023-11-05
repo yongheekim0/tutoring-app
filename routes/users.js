@@ -32,4 +32,14 @@ router.get('/edit', function (req, res) {
   res.render('users/edit', { languages });
 });
 
+router.put('/', async (req, res) => {
+  await User.updateOne({ googleId: req.user.googleId }, {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    interest: req.body.interest,
+    email: req.body.email,
+  });
+  res.redirect('/users')
+});
+
 module.exports = router;

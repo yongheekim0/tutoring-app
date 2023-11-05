@@ -1,12 +1,13 @@
 <% layout('layouts/boilerplate') %>
 
 <h1>Edit your info</h1>
+<form action="/users?_method=PUT" method="POST">
 <div class="row">
   <div class="col">
-    <input type="text" class="form-control" value="<%= user.firstName %>" aria-label="First name" />
+    <input type="text" class="form-control" name="firstName" value="<%= user.firstName %>" aria-label="First name" />
   </div>
   <div class="col">
-    <input type="text" class="form-control" value="<%= user.lastName %>" aria-label="Last name" />
+    <input type="text" class="form-control" name="lastName" value="<%= user.lastName %>" aria-label="Last name" />
   </div>
 </div>
 <div class="mb-3">
@@ -15,7 +16,7 @@
 </div>
 <% languages.forEach(lang => { %>
 <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="<%= lang %>" name="<%= lang %>" id="<%= lang %>" <%= user.interest.includes(lang) ? "checked" : "" %>/>
+  <input class="form-check-input" type="checkbox" value="<%= lang %>" name="interest" id="<%= lang %>" <%= user.interest.includes(lang) ? "checked" : "" %>/>
   <label class="form-check-label" for="<%= lang %>"> <%= lang %> </label>
 </div>
 <% }) %>
@@ -24,3 +25,5 @@
   <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
 </div>
 <a href="/users">Cancel</a>
+<button type="submit" class="btn btn-primary">Save</button>
+</form>

@@ -2,7 +2,7 @@ const User = require('../models/user');
 const languages = [
   'English',
   'Mandarin',
-  'Fench',
+  'French',
   'Japanese',
   'Korean',
   'Spanish',
