@@ -6,11 +6,11 @@ const lessonSchema = new Schema({
   date: Date,
   tutor: {
     type: Schema.Types.ObjectId,
-    ref: 'Tutor',
+    ref: 'User',
   },
   tutee: {
     type: Schema.Types.ObjectId,
-    ref: 'Tutee',
+    ref: 'User',
   },
 });
 

@@ -1,9 +1,10 @@
 <% layout('layouts/boilerplate') %>
 
 <h1>My page</h1>
-<a href="/users/edit">Edit your info</a>
 <% if(!user.isATutor) { %>
-
 <a href="/tutors/new">Become a tutor</a>
+<% } else {%>
+  <h2>You are a tutor</h2>
+<% } %>
+<div><a href="/users/edit">Edit your info</a></div>
 
-<% }%>

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/user');
-const languages = ['English', 'Mandarin', 'Fench', 'Japanese', 'Korean', 'Spanish']
+const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'];
 /* GET users listing. */
 router.get('/', function (req, res) {
   res.render('users/index');
@@ -10,7 +10,7 @@ router.get('/new', function (req, res) {
   if (req.user.isProfileCreated) {
     res.redirect('/');
   } else {
-    res.render('users/new', {languages});
+    res.render('users/new', { languages });
   }
 });
 
@@ -29,7 +29,7 @@ router.post('/', async function (req, res) {
 });
 
 router.get('/edit', function (req, res) {
-  res.render('users/edit', { title: 'Edit your info' });
+  res.render('users/edit', { languages });
 });
 
 module.exports = router;

@@ -1,6 +1,26 @@
 <% layout('layouts/boilerplate') %>
 
-<h1><%= title %></h1>
+<h1>Edit your info</h1>
+<div class="row">
+  <div class="col">
+    <input type="text" class="form-control" value="<%= user.firstName %>" aria-label="First name" />
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" value="<%= user.lastName %>" aria-label="Last name" />
+  </div>
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Email address</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" value="<%= user.email %>" />
+</div>
+<% languages.forEach(lang => { %>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="<%= lang %>" name="<%= lang %>" id="<%= lang %>" <%= user.interest.includes(lang) ? "checked" : "" %>/>
+  <label class="form-check-label" for="<%= lang %>"> <%= lang %> </label>
+</div>
+<% }) %>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+</div>
 <a href="/users">Cancel</a>
-
-

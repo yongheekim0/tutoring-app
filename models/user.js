@@ -6,7 +6,7 @@ const tutorSchema = new Schema(
     language: [
       {
         type: String,
-        enum: ['English', 'Mandarin', 'Fench', 'Japanese', 'Korean', 'Spanish'],
+        enum: ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'],
       },
     ],
     photo: String,
@@ -24,11 +24,12 @@ const userSchema = new Schema(
       type: Boolean,
       default: false,
     },
-    interest: [{
-      type: String,
-      enum: ['English', 'Mandarin', 'Fench', 'Japanese', 'Korean', 'Spanish'],
-      lowercase: true,
-    }],
+    interest: [
+      {
+        type: String,
+        enum: ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'],
+      },
+    ],
     photo: String,
     googleId: {
       type: String,

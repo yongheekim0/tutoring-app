@@ -25,8 +25,8 @@
     <legend>What languages are you intereted in?</legend>
     <% languages.forEach(language => { %>
     <div>
-      <input type="checkbox" id="interest" name="interest"/>
-      <label for="interest"><%= language %></label>
+      <input type="checkbox" id="<%= language %>" value="<%= language %>" name="interest"/>
+      <label for="<%= language %>"><%= language %></label>
     </div>
     <% }) %>
   </fieldset>

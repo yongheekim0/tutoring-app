@@ -9,7 +9,7 @@ const tuteeSchema = new Schema({
   language: [
     {
       type: String,
-      enum: ['English', 'Mandarin', 'Fench', 'Japanese', 'Korean', 'Spanish'],
+      enum: ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'],
     },
   ],
 });
