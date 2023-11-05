@@ -42,4 +42,9 @@ router.put('/', async (req, res) => {
   res.redirect('/users')
 });
 
+router.delete('/', async (req, res) => {
+  await User.findOneAndDelete({ googleId: req.user.googleId })
+  res.redirect('/')
+})
+
 module.exports = router;
