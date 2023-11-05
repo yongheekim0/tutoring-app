@@ -2,6 +2,8 @@
 
 <h1>My page</h1>
 <a href="/users/edit">Edit your info</a>
-<a href="/tutors">Become a tutor</a>
+<% if(!user.isATutor) { %>
 
+<a href="/tutors/new">Become a tutor</a>
 
+<% }%>

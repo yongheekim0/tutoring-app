@@ -6,4 +6,6 @@ router.get('/', tutorsControl.index);
 
 router.get('/new', tutorsControl.new)
 
+router.post('/', tutorsControl.create)
+
 module.exports = router;

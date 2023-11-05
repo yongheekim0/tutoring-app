@@ -1,3 +1,21 @@
 <% layout('layouts/boilerplate') %>
 
 <h1>Register As a Tutor</h1>
+<form action="/tutors" method="POST">
+  <label for="language">What language you want to teach? </label>
+  <select name="language" id="language" required>
+    <% languages.forEach(language => { %>
+    <option value="<%= language %>"><%= language %></option>
+    <% }) %>
+  </select>
+  <div>
+    <label for="about">About yourself: </label> <br />
+    <textarea name="about" id="about" cols="30" rows="10"></textarea>
+  </div>
+
+  <div>
+    <label for="skills">Skills: </label><br />
+    <textarea name="skills" id="skills" cols="30" rows="10"></textarea>
+  </div>
+  <input type="submit" />
+</form>
