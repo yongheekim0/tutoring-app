@@ -1,13 +1,34 @@
 <% layout('layouts/boilerplate') %>
 
 
-<% if(user) { %>
-  <h1>Hello! <%= user.firstName %></h1>
-<% } else { %>
-<h1>Home Page</h1>
-<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsum ex accusantium fugiat vero quam assumenda perferendis exercitationem ipsa officia, consectetur totam iusto omnis rerum autem aperiam reprehenderit quibusdam neque qui?
-Atque doloribus nihil vero ut a culpa inventore similique, accusamus dolorum fuga earum! Dolorem sunt, aliquid reprehenderit odit, hic voluptatum officiis rem pariatur necessitatibus mollitia quisquam molestias adipisci minima saepe?
-Minima, possimus delectus aut tempora natus veritatis enim earum id, blanditiis 
-</p> <% } %> 
-
-
+<div class="container w-50">
+  <% if(user) { %>
+    <h1>Welcome! <%= user.firstName %></h1>
+  <% }  %>
+<div id="carouselExampleIndicators" class="carousel slide">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://placehold.co/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://placehold.co/200" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://placehold.co/200" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</div>

@@ -1,10 +1,46 @@
 <% layout('layouts/boilerplate') %>
 
-<h1>My page</h1>
-<% if(!user.isATutor) { %>
-<a href="/tutors/new">Become a tutor</a>
-<% } else {%>
-  <h2>You are a tutor</h2>
-<% } %>
-<div><a href="/users/edit">Edit your info</a></div>
+<div class="container">
+<h2>My Info <span class="h6"><a href="/users/edit">Edit</a></span>
+</h2> 
+  <table class="table">
+    <tbody>
+      <tr>
+        <th scope="row">Name</th>
+        <td><%= user.firstName %> <%= user.lastName %></td>
+      </tr>
+      <tr>
+        <th scope="row">Email</th>
+        <td><%= user.email %></td>
+      </tr>
+      <tr>
+        <th scope="row">Account Created</th>
+        <td colspan="2"><%= user.createdAt.toLocaleDateString() %></td>
+      </tr>
+      <tr>
+        <th scope="row">Status</th>
+        <td colspan="2"><%= user.isATutor ? "Tutor" : "Student" %> <br> <% if(!user.isATutor) { %> <a href="/tutors/new">(Become a tutor)</a> <% } %></td>
+      </tr>
+      <% if(user.isATutor) { %>
+        
+        <tr>
+          <th scope="row">You teach</th>
+          <td><%= user.tutor.language %></td>
+        </tr>
+        <tr>
+          <th scope="row">About</th>
+          <td><%= user.tutor.about %></td>
+        </tr>
+        <tr>
+          <th scope="row">Skills</th>
+          <td><%= user.tutor.skills %></td>
+        </tr>
 
+        <% } %>
+
+
+    </tbody>
+  </table>
+
+ 
+</div>
