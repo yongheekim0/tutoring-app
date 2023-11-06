@@ -55,6 +55,9 @@ router.put('/', async (req, res) => {
       lastName: req.body.lastName,
       interest: req.body.interest,
       email: req.body.email,
+      'tutor.language': req.body.language,
+      'tutor.about': req.body.about,
+      'tutor.skills': req.body.skills,
     }
   );
   res.redirect('/users');

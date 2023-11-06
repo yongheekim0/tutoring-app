@@ -3,12 +3,10 @@ const Schema = mongoose.Schema;
 
 const tutorSchema = new Schema(
   {
-    language: [
-      {
-        type: String,
-        enum: ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'],
-      },
-    ],
+    language: {
+      type: String,
+      enum: ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'],
+    },
     photo: String,
     about: String,
     skills: String,
@@ -16,16 +14,15 @@ const tutorSchema = new Schema(
   { timestamps: true }
 );
 
-
 const userSchema = new Schema(
   {
     firstName: {
       type: String,
-      required: [true, 'Firstname cannot be blanked']
+      required: [true, 'Firstname cannot be blanked'],
     },
     lastName: {
       type: String,
-      required: [true, 'Lastname cannot be blanked']
+      required: [true, 'Lastname cannot be blanked'],
     },
     isProfileCreated: {
       type: Boolean,
