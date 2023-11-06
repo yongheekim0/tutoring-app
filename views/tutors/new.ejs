@@ -2,20 +2,21 @@
 
 <h1>Register As a Tutor</h1>
 <form action="/tutors" method="POST">
-  <label for="language">What language you want to teach? </label>
-  <select name="language" id="language" required>
-    <% languages.forEach(language => { %>
-    <option value="<%= language %>"><%= language %></option>
-    <% }) %>
-  </select>
-  <div>
-    <label for="about">About yourself: </label> <br />
-    <textarea name="about" id="about" cols="30" rows="10"></textarea>
+  <div class="my-3">
+    <label for="language" class="form-label">What language you want to teach? </label>
+    <select class="form-select" aria-label="Default select example" name="language" id="language" is="language" required>
+      <% languages.forEach(language => { %>
+      <option value="<%= language %>"><%= language %></option>
+      <% }) %>
+    </select>
   </div>
-
-  <div>
-    <label for="skills">Skills: </label><br />
-    <textarea name="skills" id="skills" cols="30" rows="10"></textarea>
+  <div class="my-3">
+    <label for="about" class="form-label">Profile</label>
+    <textarea class="form-control" id="about" rows="4" placeholder="About yourself" name="about"></textarea>
   </div>
-  <input type="submit" />
+  <div class="my-3">
+    <label for="skills" class="form-label">Add relevant skills</label>
+    <textarea class="form-control" id="skills" rows="4" placeholder="Your skills" name="skills"></textarea>
+  </div>
+  <input type="submit" class="btn btn-primary" />
 </form>
