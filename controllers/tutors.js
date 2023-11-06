@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'];
 const index = async (req, res) => {
-  const { tutor: tutors } = await User.find({ isATutor: true });
+  const tutors = await User.find({ isATutor: true });
   res.render('tutors/index', { tutors });
 };
 
