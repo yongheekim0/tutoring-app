@@ -1,1 +1,48 @@
 <% layout('layouts/boilerplate') %> 
+
+
+<div class="container p-5 d-flex justify-content-start">
+<form action="/lessons" method="POST">
+  <input type="time" name="time" required>
+  <input type="date" name="date" required>
+  <input type="submit" value="Submit" class="btn bg-primary">
+</form>
+
+
+
+<!-- <div class="container w-25">
+  <select class="form-select" name="time" size="8" aria-label="Size 3 select example">
+    <option value="00:00">00:00</option>
+    <option value="00:30">00:30</option>
+    <option value="01:00">01:00</option>
+    <option value="01:30">01:30</option>
+    <option value="02:00">02:00</option>
+    <option value="02:30">02:30</option>
+    <option value="03:00">03:00</option>
+    <option value="03:30">03:30</option>
+    <option value="04:00">04:00</option>
+    <option value="04:30">04:30</option>
+    <option value="05:00">05:00</option>
+    <option value="05:30">05:30</option>
+    <option value="06:00">06:00</option>
+    <option value="06:30">06:30</option>
+    <option value="07:00">07:00</option>
+    <option value="07:30">07:30</option>
+    <option value="08:00">08:00</option>
+    <option value="08:30">08:30</option>
+    <option value="09:00">09:00</option>
+    <option value="09:30">09:30</option>
+    <option value="10:00">10:00</option>
+    <option value="10:30">10:30</option>
+    <option value="11:00">11:00</option>
+    <option value="11:30">11:30</option>
+  </select>
+</div> -->
+</div>
+
+
+
+<% for(let lesson of lessons) { %>
+  <h5><%= lesson.time %> <%= lesson.date.toLocaleDateString() %></h5>
+
+<% } %>

@@ -10,17 +10,20 @@ require('dotenv').config();
 require('../config/database');
 require('../config/passport');
 
-// const seedDB = async () => {
-//   await Lesson.deleteMany({});
+const seedDB = async () => {
+  await Lesson.deleteMany({});
 
-// };
+};
+seedDB()
 
-const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish']
+// const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish']
 
-fakeUsers.forEach(async user => {
-  const data = new User(user)
-  await data.save()
-})
+// fakeUsers.forEach(async user => {
+//   const data = new User(user)
+//   await data.save()
+// })
+
+
  
 
 // User.findOneAndUpdate({name: yonghee}, {isProfileCreated: false, interest: ''}).then((result)=> console.log(result))
