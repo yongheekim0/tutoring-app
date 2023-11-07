@@ -1,4 +1,5 @@
 const User = require('../models/user');
+const Lesson = require('../models/lesson');
 const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'];
 
 const index = async (req, res) => {
@@ -7,15 +8,16 @@ const index = async (req, res) => {
 };
 
 const show = async (req, res) => {
-  const tutor = await User.findById(req.params.id)
-  res.render('tutors/show', { tutor })
-}
+  const tutor = await User.findById(req.params.id);
+  const lessons = await Lesson.find({ tutor: req.params.id });
+  res.render('tutors/show', { tutor, lessons });
+};
 
 const newTutor = (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
   }
-    res.render('tutors/new', { languages });
+  res.render('tutors/new', { languages });
 };
 
 const create = async (req, res) => {

@@ -1,3 +1,9 @@
 <% layout('layouts/boilerplate') %>
 
-<h1>Show</h1>
+
+<div class="container p-5">
+  <% for(let lesson of lessons) {%>
+  <h5><a href=""><%= lesson.time %>, <%= lesson.date.toLocaleDateString() %></a></h5>
+
+  <%} %>
+</div>

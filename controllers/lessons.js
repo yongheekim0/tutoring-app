@@ -22,7 +22,15 @@ const create = async (req, res) => {
   res.redirect('/lessons');
 };
 
+
+const deleteLesson = async (req, res) => {
+  await Lesson.findByIdAndDelete(req.params.id)
+  res.redirect('/lessons')
+}
+
+
 module.exports = {
   index,
   create,
+  delete: deleteLesson,
 };
