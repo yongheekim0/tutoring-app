@@ -7,7 +7,7 @@ const index = async (req, res) => {
     res.redirect('/auth/google');
   }
   const lessons = await Lesson.find({ tutor: req.user._id });
-  const myLessons = await Lesson.find({tutee : req.user._id})
+  const myLessons = await Lesson.find({ tutee: req.user._id });
   res.render('lessons/index', { lessons, myLessons });
 };
 
@@ -23,12 +23,10 @@ const create = async (req, res) => {
   res.redirect('/lessons');
 };
 
-
 const deleteLesson = async (req, res) => {
-  await Lesson.findByIdAndDelete(req.params.id)
-  res.redirect('/lessons')
-}
-
+    await Lesson.findByIdAndDelete(req.params.id);
+    res.redirect('/lessons');
+};
 
 module.exports = {
   index,

@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/user');
+const Lesson = require('../models/lesson')
 const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'];
 /* GET users listing. */
 router.get('/', function (req, res) {
@@ -37,11 +38,14 @@ router.post('/', async function (req, res) {
   res.redirect('/');
 });
 
-router.get('/edit', function (req, res) {
+router.get('/edit', async function (req, res) {
   if (!req.user) {
     res.redirect('/auth/google');
   }
-  res.render('users/edit', { languages });
+  const lessonEnrolled = await Lesson.find({tutee: req.user._id})
+  const lessonTeach = await Lesson.find({tutor: req.user._id})
+  //res.send(lessonEnrolled)
+  res.render('users/edit', { languages, lessonEnrolled, lessonTeach });
 });
 
 router.put('/', async (req, res) => {
@@ -67,6 +71,10 @@ router.delete('/', async (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
   }
+ 
+  // if(lessonEnrolled || lessonTeach) {
+  //   res.redirect('/')
+  // }
   await User.findOneAndDelete({ googleId: req.user.googleId });
   res.redirect('/');
 });
