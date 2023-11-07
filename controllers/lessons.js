@@ -7,9 +7,8 @@ const index = async (req, res) => {
     res.redirect('/auth/google');
   }
   const lessons = await Lesson.find({ tutor: req.user._id });
-  // const lessons = await Lesson.find({'tutee.googleId': req.user.googldId})
-  // res.send(lessons)
-  res.render('lessons/index', { lessons });
+  const myLessons = await Lesson.find({tutee : req.user._id})
+  res.render('lessons/index', { lessons, myLessons });
 };
 
 const create = async (req, res) => {
@@ -17,6 +16,8 @@ const create = async (req, res) => {
     time: req.body.time,
     date: req.body.date,
     tutor: req.user._id,
+    tutorName: req.user.firstName,
+    language: req.user.tutor.language,
   });
   await lesson.save();
   res.redirect('/lessons');

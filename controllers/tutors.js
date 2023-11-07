@@ -15,8 +15,7 @@ const show = async (req, res) => {
 
 const bookLesson = async (req, res) => {
   const tutor = await User.findById(req.params.id);
-  res.send(req.user._id)
-  await Lesson.findOneAndUpdate({tutor: req.params.id, _id: req.params.lesson}, {tutee: req.user._id})
+  await Lesson.findOneAndUpdate({tutor: req.params.id, _id: req.params.lesson}, {tutee: req.user._id, tuteeName: req.user.firstName})
   res.redirect(`/tutors/${tutor._id}`)
 }
 

@@ -19,7 +19,7 @@
       </tr>
       <tr>
         <th scope="row">Status</th>
-        <td colspan="2"><%= user.isATutor ? "Tutor" : "Student" %> <br> <% if(!user.isATutor) { %> <a href="/tutors/new">(Become a tutor)</a> <% } %></td>
+        <td colspan="2"><span class="badge bg-success"><%= user.isATutor ? "Tutor" : "Student" %></span>  <br> <% if(!user.isATutor) { %> <a href="/tutors/new">(Become a tutor)</a> <% } %></td>
       </tr>
       <% if(user.isATutor) { %>
         

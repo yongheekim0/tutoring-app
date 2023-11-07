@@ -2,49 +2,82 @@
 
 
 <% if(user.isATutor) {%>
-<div class="container p-5 d-flex justify-content-start">
-  <form action="/lessons" method="POST">
-    <input type="time" name="time" required />
-    <input type="date" name="date" required />
-    <input type="submit" value="Submit" class="btn bg-primary" />
-  </form>
+
+  <div class="container mt-4 p-5">
+  <h2>Class Status</h2>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Time</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Tutee</th>
+      <th scope="col">Manage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let lesson of lessons) { %>
+    <tr>
+      <th scope="row"><%= lesson.time %></th>
+      <td><%= lesson.date.toLocaleDateString() %></td>
+      <% if(lesson.tuteeName) {%>
+      <td><span class="badge bg-primary">Booked</span></h1></td>
+      <td><%= lesson.tuteeName %></td>
+      <td><a href="/lessons/<%=lesson._id%>" class="btn text-bg-secondary p-1">Cancel</a></td>
+      <% } else { %>
+      <td></td>
+      <td></td>
+      <td><a href="/lessons/<%=lesson._id%>" class="btn bg-danger p-1">Delete</a></form></td>
+      <% } %>
+    </tr>
+    <% } %>
+  </tbody>
+</table>
 </div>
 
-  <!-- <div class="container w-25">
-  <select class="form-select" name="time" size="8" aria-label="Size 3 select example">
-    <option value="00:00">00:00</option>
-    <option value="00:30">00:30</option>
-    <option value="01:00">01:00</option>
-    <option value="01:30">01:30</option>
-    <option value="02:00">02:00</option>
-    <option value="02:30">02:30</option>
-    <option value="03:00">03:00</option>
-    <option value="03:30">03:30</option>
-    <option value="04:00">04:00</option>
-    <option value="04:30">04:30</option>
-    <option value="05:00">05:00</option>
-    <option value="05:30">05:30</option>
-    <option value="06:00">06:00</option>
-    <option value="06:30">06:30</option>
-    <option value="07:00">07:00</option>
-    <option value="07:30">07:30</option>
-    <option value="08:00">08:00</option>
-    <option value="08:30">08:30</option>
-    <option value="09:00">09:00</option>
-    <option value="09:30">09:30</option>
-    <option value="10:00">10:00</option>
-    <option value="10:30">10:30</option>
-    <option value="11:00">11:00</option>
-    <option value="11:30">11:30</option>
-  </select>
-</div> -->
 
+<div class="container border-top border-bottom px-5">
+  <h5>Create your classes</h5>
+  <div class="container"> <br>
+  <form action="/lessons" method="POST">
+    <input type="time" name="time" step="1800" class="mx-2" required />
+    <input type="date" name="date" class="mx-2" />
+    <input type="submit" value="Submit" class="btn bg-primary p-1" />
+    <p class="fst-italic">30 miniute time interval available</p>
+    
+  </form>
+</div>
+</div>
 
-<% for(let lesson of lessons) { %>
-<h5>
-  <%= lesson.time %> <%= lesson.date.toLocaleDateString() %>
-  <a href="/lessons/<%=lesson._id%>" class="btn bg-danger p-1">Delete</a></form>
-</h5>
 <% } %>
+
+
+<% if(!user.isATutor) { %>
+<div class="container mt-5 p-4">
+  <h2>Class Status</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Time</th>
+        <th scope="col">Date</th>
+        <th scope="col">Language</th>
+        <th scope="col">Tutor</th>
+        <th scope="col">Manage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% myLessons.forEach(myLesson => { %>
+      <tr>
+        <th scope="row"><%= myLesson.time %></th>
+        <td><%= myLesson.date.toLocaleDateString() %></td>
+        <td><span class="badge bg-success"><%= myLesson.language %></span></h1></td>
+        <td><%= myLesson.tutorName %></td>
+        <td><a href="/lessons/<%=myLesson._id%>" class="btn text-bg-secondary p-1">Cancel</a></td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  </div>
+
 
 <% } %>
