@@ -13,6 +13,13 @@ const show = async (req, res) => {
   res.render('tutors/show', { tutor, lessons });
 };
 
+const bookLesson = async (req, res) => {
+  const tutor = await User.findById(req.params.id);
+  res.send(req.user._id)
+  await Lesson.findOneAndUpdate({tutor: req.params.id, _id: req.params.lesson}, {tutee: req.user._id})
+  res.redirect(`/tutors/${tutor._id}`)
+}
+
 const newTutor = (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
@@ -33,4 +40,5 @@ module.exports = {
   show,
   new: newTutor,
   create,
+  update: bookLesson,
 };

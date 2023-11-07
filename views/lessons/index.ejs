@@ -1,11 +1,14 @@
 <% layout('layouts/boilerplate') %>
 
+
+<% if(user.isATutor) {%>
 <div class="container p-5 d-flex justify-content-start">
   <form action="/lessons" method="POST">
     <input type="time" name="time" required />
     <input type="date" name="date" required />
     <input type="submit" value="Submit" class="btn bg-primary" />
   </form>
+</div>
 
   <!-- <div class="container w-25">
   <select class="form-select" name="time" size="8" aria-label="Size 3 select example">
@@ -35,13 +38,13 @@
     <option value="11:30">11:30</option>
   </select>
 </div> -->
-</div>
+
 
 <% for(let lesson of lessons) { %>
 <h5>
   <%= lesson.time %> <%= lesson.date.toLocaleDateString() %>
-  <!-- <form action="/lessons/<%=lesson._id%>?_method=DELETE" method="POST"> -->
   <a href="/lessons/<%=lesson._id%>" class="btn bg-danger p-1">Delete</a></form>
 </h5>
+<% } %>
 
 <% } %>

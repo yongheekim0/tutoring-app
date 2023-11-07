@@ -9,7 +9,7 @@ const lessonSchema = new Schema({
     ref: 'User',
     required: true,
   },
-  tutor: {
+  tutee: {
     type: Schema.Types.ObjectId,
     ref: 'User',
   },

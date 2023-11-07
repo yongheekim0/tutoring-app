@@ -1,9 +1,11 @@
 <% layout('layouts/boilerplate') %>
 
-
 <div class="container p-5">
   <% for(let lesson of lessons) {%>
-  <h5><a href=""><%= lesson.time %>, <%= lesson.date.toLocaleDateString() %></a></h5>
+  <ul>
+    <li><%= lesson.time %>, <%= lesson.date.toLocaleDateString() %>
+      <a class="btn bg-primary" href="/tutors/<%= tutor._id %>/<%= lesson._id %>">Make a Booking</a></li>
+  </ul>
 
   <%} %>
 </div>
