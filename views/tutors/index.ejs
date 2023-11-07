@@ -9,7 +9,9 @@
   <% } %>
   <div class="container col my-2">
     <div class="card col-6 m-auto" style="width: 24rem">
-      <img src="<%= tutors[i].tutor.photo %>" class="card-img-top mt-2" alt="..." />
+      <div>
+      <img src="<%= tutors[i].tutor.photo %>" class="card-img-top mt-2 img-fluid" alt="..." />
+    </div>
       <div class="card-body">
         <h5 class="card-title"><%= tutors[i].firstName %> <%= tutors[i].lastName %> <span class="text-muted h6"><%= tutors[i].tutor.language  %></span></h5>
         <p class="card-text"><%= tutors[i].tutor.about %></p>
