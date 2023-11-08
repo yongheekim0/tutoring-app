@@ -14,7 +14,7 @@
         <p class="card-text border-bottom h-50"><%= tutor.tutor.about %></p>
         <p class="shadow-sm card-text text-muted ">Skills</p>
         <p class="card-text border-bottom"><small class="text-body-secondary"><%= tutor.tutor.skills %></small></p>
-        <% if(user) { %>
+        <% if(user && lessons.length !== 0) { %>
         <p class="card-text">
           <div class="container mt-4">
           <h5>Class Status</h5>
@@ -47,9 +47,11 @@
         </table>
         </div>
         </p>
-      <% } else { %>
-        <p class="card-text"> Please login to see the classes</p>
-     <% }%>
+      <% } else if (user && lessons.length === 0){ %>
+        <p class="card-text"> This tutor hasn't open a class yet</p>
+        <% } else {%>
+          <p class="card-text"> Please log-in to see the classes</p>
+      <% } %>
       </div>
     </div>
     </div>
