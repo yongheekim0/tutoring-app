@@ -1,27 +1,29 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var session = require('express-session');
-var passport = require('passport');
-var ejsMate = require('ejs-mate')
-var methodOverride = require('method-override');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
+const ejsMate = require('ejs-mate');
+const methodOverride = require('method-override');
+const multer = require('multer');
+
 
 require('dotenv').config();
 // connect to the database with AFTER the config vars are processed
 require('./config/database');
 require('./config/passport');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var tutorsRouter = require('./routes/tutors');
-var lessonsRouter = require('./routes/lessons');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const tutorsRouter = require('./routes/tutors');
+const lessonsRouter = require('./routes/lessons');
 
-var app = express();
+const app = express();
 
 // view engine setup
-app.engine('ejs', ejsMate)
+app.engine('ejs', ejsMate);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 

@@ -1,48 +1,43 @@
-<nav class="navbar navbar-expand-lg text-bg-light fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #aeb8ee">
   <div class="container-fluid">
-    <a class="navbar-brand display-1" href="/">LingoU</a>
+    <a class="navbar-brand display-1 fw-bolder font-monospace mx-3" href="/">LingoU</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/tutors">Find tutors</a>
-        <% if(user && user.isProfileCreated) {%> 
-          <% if(user.isATutor) { %>
+        <% if(user && user.isProfileCreated) {%> <% if(user.isATutor) { %>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            My LingoU
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> My LingoU </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/lessons">My Teaching</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="/users">My Account</a></li>
           </ul>
         </li>
-          <% } else {%>
+        <% } else {%>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            My LingoU
-          </a>
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"> My LingoU </a>
           <ul class="dropdown-menu">
             <li><a class="dropdown-item" href="/lessons">My Learning</a></li>
-            <li><hr class="dropdown-divider"></li>
+            <li><hr class="dropdown-divider" /></li>
             <li><a class="dropdown-item" href="/users">My Account</a></li>
           </ul>
         </li>
-          <% } %>
-        <a class="nav-link" href="/logout">Log out</a>
+        <% } %>
+        <a class="nav-link mx-3" href="/logout">Log out</a>
         <%} else if (user) { %>
-        <a class="nav-link" href="/logout">Log out</a>
+        <a class="nav-link mx-3" href="/logout">Log out</a>
         <%} else { %>
-        <a class="nav-link" href="/auth/google">Login</a>
+        <a class="nav-link mx-3" href="/auth/google">Login</a>
         <% } %>
       </div>
+      <% if(user) { %>
+        <span class="mx-2">Welcome, <span class="fw-bold"><%= user.firstName %></span></span>
+        <% } %>
     </div>
-    <% if(user)  { %>
-          <span class="navbar-text">
-            Welcome, <%= user.firstName %>
-          </span>
-   <% } %>
+  
   </div>
+ 
 </nav>

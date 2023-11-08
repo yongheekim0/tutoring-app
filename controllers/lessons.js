@@ -24,8 +24,16 @@ const create = async (req, res) => {
 };
 
 const deleteLesson = async (req, res) => {
-    await Lesson.findByIdAndDelete(req.params.id);
-    res.redirect('/lessons');
+    if(req.user.isATutor) {
+      await Lesson.findByIdAndDelete(req.params.id);
+      res.redirect('/lessons');
+    } else {    
+    const lessonEnrolled = await Lesson.findById(req.params.id)
+    lessonEnrolled.tutee = null
+    lessonEnrolled.tuteeName = null
+    await lessonEnrolled.save()
+    res.redirect('/lessons')
+}
 };
 
 module.exports = {
