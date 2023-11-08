@@ -3,15 +3,17 @@ const Lesson = require('../models/lesson');
 const User = require('../models/user');
 const { fakeUsers } = require('./users')
 
-const { users } = require('./tutors');
-
 require('dotenv').config();
 // connect to the database with AFTER the config vars are processed
 require('../config/database');
 require('../config/passport');
 
 const seedDB = async () => {
-  await Lesson.deleteMany({});
+  await User.deleteMany({})
+  fakeUsers.forEach( async u => {
+    const user = new User(u)
+    await user.save()
+  })
 
 };
 seedDB()

@@ -19,13 +19,21 @@
       </tr>
       <tr>
         <th scope="row">Status</th>
-        <td colspan="2"><span class="badge bg-success"><%= user.isATutor ? "Tutor" : "Student" %></span>  <br> <% if(!user.isATutor) { %> <a href="/tutors/new">(Become a tutor)</a> <% } %></td>
+        <td colspan="2"><span class="badge bg-info"><%= user.isATutor ? "Tutor" : "Student" %></span>  <br> 
+          
+          <% if(!user.isATutor && lessons.length === 0) { %> 
+            <a href="/tutors/new">(Become a tutor)</a> <% 
+            } else if (!user.isATutor && lessons.length !== 0) {%>
+              <p class="text-muted">(Cancel classes you booked to become a tutor)</p>
+            <% } %>
+
+        </td>
       </tr>
       <% if(user.isATutor) { %>
         
         <tr>
           <th scope="row">You teach</th>
-          <td><%= user.tutor.language %></td>
+          <td><span class="badge bg-success"><%= user.tutor.language %></span> </td>
         </tr>
         <tr>
           <th scope="row">About</th>

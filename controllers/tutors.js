@@ -4,6 +4,7 @@ const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spani
 
 const index = async (req, res) => {
   const tutors = await User.find({ isATutor: true });
+  tutors.sort(() => 0.5 - Math.random())
   res.render('tutors/index', { tutors });
 };
 
@@ -14,24 +15,31 @@ const show = async (req, res) => {
 };
 
 const bookLesson = async (req, res) => {
-  const tutor = await User.findById(req.params.id);
-  await Lesson.findOneAndUpdate({tutor: req.params.id, _id: req.params.lesson}, {tutee: req.user._id, tuteeName: req.user.firstName})
-  res.redirect(`/tutors/${tutor._id}`)
-}
-
-const newTutor = (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
+  } else {
+    const tutor = await User.findById(req.params.id);
+    await Lesson.findOneAndUpdate({ tutor: req.params.id, _id: req.params.lesson }, { tutee: req.user._id, tuteeName: req.user.firstName });
+    res.redirect(`/tutors/${tutor._id}`);
   }
-  res.render('tutors/new', { languages });
+};
+
+const newTutor = async (req, res) => {
+  if (!req.user) {
+    res.redirect('/auth/google');
+  } else {
+    const lessons = await Lesson.find({tutee: req.user._id})
+    res.render('tutors/new', { languages, lessons });
+  }
 };
 
 const create = async (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
-  }
+  } else {
   await User.updateOne({ googleId: req.user.googleId }, { isATutor: true, tutor: req.body });
   res.redirect('/');
+  }
 };
 
 module.exports = {

@@ -1,14 +1,16 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../models/user');
-const Lesson = require('../models/lesson')
+const Lesson = require('../models/lesson');
 const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish'];
 /* GET users listing. */
-router.get('/', function (req, res) {
+router.get('/', async function (req, res) {
   if (!req.user) {
     res.redirect('/auth/google');
+  } else {
+    const lessons = await Lesson.find({tutee: req.user._id})
+    res.render('users/index', { lessons });
   }
-  res.render('users/index');
 });
 router.get('/new', function (req, res) {
   if (!req.user) {
@@ -42,8 +44,8 @@ router.get('/edit', async function (req, res) {
   if (!req.user) {
     res.redirect('/auth/google');
   }
-  const lessonEnrolled = await Lesson.find({tutee: req.user._id})
-  const lessonTeach = await Lesson.find({tutor: req.user._id})
+  const lessonEnrolled = await Lesson.find({ tutee: req.user._id });
+  const lessonTeach = await Lesson.find({ tutor: req.user._id });
   //res.send(lessonEnrolled)
   res.render('users/edit', { languages, lessonEnrolled, lessonTeach });
 });
@@ -62,6 +64,7 @@ router.put('/', async (req, res) => {
       'tutor.language': req.body.language,
       'tutor.about': req.body.about,
       'tutor.skills': req.body.skills,
+      'tutor.photo' : req.body.photo,
     }
   );
   res.redirect('/users');
@@ -71,7 +74,7 @@ router.delete('/', async (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
   }
- 
+
   // if(lessonEnrolled || lessonTeach) {
   //   res.redirect('/')
   // }

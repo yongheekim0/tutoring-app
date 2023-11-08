@@ -1,16 +1,58 @@
 <% layout('layouts/boilerplate') %>
 
-<div class="container p-5">
-  <ul>
-  <% for(let lesson of lessons) {%>
-    <li><%= lesson.time %>, <%= lesson.date.toLocaleDateString() %>
-      <% if(!lesson.tutee) { %>
-        <a class="btn bg-primary p-1" href="/tutors/<%= tutor._id %>/<%= lesson._id %>">Make a Booking</a></li>
-        <% } else if (lesson.tutee.toString() === user._id.toString()) {%>
-          <a class="btn bg-warning p-1" href="#">My booking</a></li>
-          <% } else {%> 
-            <a class="btn bg-warning p-1" href="#">Booked</a></li>
-      <% } %>
-      <%} %>
-    </ul>
+
+<div class="container mt-4">
+<div class="card mb-3 m-auto" style="max-width: 840px;">
+  <div class="row g-0">
+    <div class="col-md-6">
+      <img src="<%= tutor.tutor.photo %>" class="img-fluid rounded" alt="...">
+    </div>
+    <div class="col-md-6">
+      <div class="card-body">
+        <h5 class="card-title"><%= tutor.firstName %> <%= tutor.lastName %> <span class="badge rounded-pill text-bg-success"><%= tutor.tutor.language %></span> </h5>
+        <p class="shadow-sm card-text text-muted h-50">About</p>
+        <p class="card-text border-bottom h-50"><%= tutor.tutor.about %></p>
+        <p class="shadow-sm card-text text-muted ">Skills</p>
+        <p class="card-text border-bottom"><small class="text-body-secondary"><%= tutor.tutor.skills %></small></p>
+        <% if(user) { %>
+        <p class="card-text">
+          <div class="container mt-4">
+          <h5>Class Status</h5>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Date</th>
+              <th scope="col">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let lesson of lessons) { %>
+            <tr>
+              <td><%= lesson.time %></td>
+              <td><%= lesson.date.toLocaleDateString() %></td>
+      
+              <td><% if(!lesson.tutee && lesson.tutor.toString() === user._id.toString()) { %>
+                <a class="btn bg-info p-1" href="#">My class</a>
+                <% } else if (!lesson.tutee){ %>
+                  <a class="btn bg-primary p-1" href="/tutors/<%= tutor._id %>/<%= lesson._id %>">Make a Booking</a>
+                <% } else if (lesson.tutee.toString() === user._id.toString()) {%>
+                  <a class="btn bg-warning p-1" href="#">My booking</a>
+                  <% } else {%> 
+                    <a class="btn bg-warning p-1" href="#">Booked</a>
+              <% } %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        </div>
+        </p>
+      <% } else { %>
+        <p class="card-text"> Please login to see the classes</p>
+     <% }%>
+      </div>
+    </div>
+    </div>
+  </div>
 </div>
+  
