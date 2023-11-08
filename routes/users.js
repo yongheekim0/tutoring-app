@@ -8,7 +8,7 @@ router.get('/', async function (req, res) {
   if (!req.user) {
     res.redirect('/auth/google');
   } else {
-    const lessons = await Lesson.find({tutee: req.user._id})
+    const lessons = await Lesson.find({ tutee: req.user._id });
     res.render('users/index', { lessons });
   }
 });
@@ -53,21 +53,22 @@ router.get('/edit', async function (req, res) {
 router.put('/', async (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
+  } else {
+    await User.updateOne(
+      { googleId: req.user.googleId },
+      {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        interest: req.body.interest,
+        email: req.body.email,
+        'tutor.language': req.body.language,
+        'tutor.about': req.body.about,
+        'tutor.skills': req.body.skills,
+        'tutor.photo': req.body.photo,
+      }
+    );
+    res.redirect('/users');
   }
-  await User.updateOne(
-    { googleId: req.user.googleId },
-    {
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      interest: req.body.interest,
-      email: req.body.email,
-      'tutor.language': req.body.language,
-      'tutor.about': req.body.about,
-      'tutor.skills': req.body.skills,
-      'tutor.photo' : req.body.photo,
-    }
-  );
-  res.redirect('/users');
 });
 
 router.delete('/', async (req, res) => {

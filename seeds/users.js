@@ -131,3 +131,30 @@ module.exports.fakeUsers = [
     'tutor.skills': 'Sint et exercitation voluptate nostrud ex aliquip aute cillum consectetur laborum. In voluptate id commodo in ex cupidatat. Qui et Lorem elit deserunt.\r\n',
   },
 ];
+
+
+// JSON Generator
+
+// [
+//   '{{repeat(10)}}',
+//   {
+//     firstName: '{{firstName()}} ',
+//     lastName: '{{surname()}}',
+//     interest: function (tags) {
+//       var languages = ['Korean', 'Japanese', 'English', 'French', 'Mandarin', 'Spanish'];
+//       return languages[tags.integer(0, languages.length -1)];
+//     },
+//     email: '{{email()}}',
+//     googleId: '{{integer(10000000000000, 99999999999999)}}',
+//     isATutor: true,
+//     isProfileCreated: true,
+//     'tutor.language': function (tags) {
+//       var languages = ['Korean', 'Japanese', 'English', 'French', 'Mandarin', 'Spanish'];
+//       return languages[tags.integer(0, languages.length -1)];
+//     },
+//     'tutor.photo':'https://picsum.photos/id/{{integer(1,200)}}/300', 
+//      'tutor.about': '{{lorem(1, "paragraphs")}}',
+//      'tutor.skills': '{{lorem(1, "paragraphs")}}'
+   
+//   }
+// ]
