@@ -7,7 +7,6 @@ const session = require('express-session');
 const passport = require('passport');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
-const multer = require('multer');
 
 
 require('dotenv').config();
