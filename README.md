@@ -11,7 +11,7 @@ An interactive language learning website
 - Check booking status
 <img src="public/images/Screenshot 2023-11-09 at 11.31.40 AM.png">
 
-- Manage your classe either you booked or created
+- Manage your classes either you booked or created
 <img src="public/images/Screenshot 2023-11-09 at 11.27.26 AM.png">
 
 - Edit your personal info and becoma a tutor
@@ -36,14 +36,14 @@ An interactive language learning website
 - Cannot make a booking for your own class
 
 ### Interactive & Intuitive
-- Buttons show who booked a class
+- Buttons show who booked the class
 - Shuffle the list of tutors when refreshed
 
 
 ## Next Steps
 
-- More options and controls on creating class
+- More options and controls on creating classes
 - Separate upcoming classes from past classes based on curren time
-- Local time implemetation 
+- Local time implementation
 - Sortinig feature on 'Find Tutors' page
-- Upload profile photo 
+- Upload profile photo by Cloudinary
