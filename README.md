@@ -42,8 +42,8 @@ An interactive language learning website
 
 ## Next Steps
 
-- More options and controls on creating class
+- More options and controls on creating classes
 - Separate upcoming classes from past classes based on curren time
-- Local time implemetation 
+- Local time implementation 
 - Sortinig feature on 'Find Tutors' page
-- Upload profile photo 
+- Upload profile photo by Cloudinary
