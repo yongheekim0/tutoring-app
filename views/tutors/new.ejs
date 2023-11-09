@@ -1,32 +1,29 @@
 <% layout('layouts/boilerplate') %>
 
-
-  <div class="container p-5 w-75">
-    <h2>Register As a Tutor</h2>
-    <form action="/tutors" method="POST">
-      <div class="my-3">
-        <label for="language" class="form-label">What language you want to teach? </label>
-        <select class="form-select" aria-label="Default select example" name="language" id="language" is="language" required>
-          <% languages.forEach(language => { %>
-          <option value="<%= language %>"><%= language %></option>
-          <% }) %>
-        </select>
-      </div>
-      <div class="my-3">
-        <label for="about" class="form-label">Profile</label>
-        <textarea class="form-control" id="about" rows="4" placeholder="About yourself" name="about"></textarea>
-      </div>
-      <div class="my-3">
-        <label for="skills" class="form-label">Add relevant skills</label>
-        <textarea class="form-control" id="skills" rows="4" placeholder="Your skills" name="skills"></textarea>
-      </div>
-      <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon2">Prifile Photo</span>
-        <input type="text" class="form-control" name="photo" value="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" aria-label="Recipient's username" aria-describedby="basic-addon2"  >
-      </div>
-      <a href="/users" type="button" class="btn btn-secondary">Cancel</a>
-      <input type="submit" class="btn btn-primary" />
-    </form>
-  </div>
-
-
+<div class="container p-5 w-75">
+  <h2>Register As a Tutor</h2>
+  <form action="/tutors" method="POST">
+    <div class="my-3">
+      <label for="language" class="form-label">What language you want to teach? </label>
+      <select class="form-select" aria-label="Default select example" name="language" id="language" is="language" required>
+        <% languages.forEach(language => { %>
+        <option value="<%= language %>"><%= language %></option>
+        <% }) %>
+      </select>
+    </div>
+    <div class="my-3">
+      <label for="about" class="form-label">Profile</label>
+      <textarea class="form-control" id="about" rows="4" placeholder="About yourself" name="about"></textarea>
+    </div>
+    <div class="my-3">
+      <label for="skills" class="form-label">Add relevant skills</label>
+      <textarea class="form-control" id="skills" rows="4" placeholder="Your skills" name="skills"></textarea>
+    </div>
+    <div class="input-group mb-3">
+      <span class="input-group-text" id="basic-addon2">Prifile Photo</span>
+      <input type="text" class="form-control" name="photo" value="https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png" aria-label="Recipient's username" aria-describedby="basic-addon2" />
+    </div>
+    <a href="/users" type="button" class="btn btn-secondary">Cancel</a>
+    <input type="submit" class="btn btn-primary" />
+  </form>
+</div>
