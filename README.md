@@ -28,16 +28,19 @@ An interactive language learning website
 - HTML
 
 ## Cool features
+
 ### Potential Error Handlings
 - Delete accout only when classes are cleared
 - Become a tutor when you don't have classes booked
 - Redirect unallowed requests 
 - Cannot make a booking for your own class
-### Interactive
+
+### Interactive & Intuitive
 - Buttons show who booked a class
+- Shuffle the list of tutors when refreshed
 
 
-# Next Steps
+## Next Steps
 
 - More options and controls on creating class
 - Separate upcoming classes from past classes based on curren time
