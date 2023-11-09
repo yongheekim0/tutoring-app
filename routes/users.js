@@ -74,13 +74,10 @@ router.put('/', async (req, res) => {
 router.delete('/', async (req, res) => {
   if (!req.user) {
     res.redirect('/auth/google');
-  }
-
-  // if(lessonEnrolled || lessonTeach) {
-  //   res.redirect('/')
-  // }
+  } else {
   await User.findOneAndDelete({ googleId: req.user.googleId });
   res.redirect('/');
+}
 });
 
 module.exports = router;
