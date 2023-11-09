@@ -43,7 +43,7 @@ An interactive language learning website
 ## Next Steps
 
 - More options and controls on creating class
-- Separate upcoming classes from past classes based on curren time
-- Local time implemetation 
+- Separate upcoming classes from past classes based on current time
+- Local time implementation
 - Sortinig feature on 'Find Tutors' page
 - Upload profile photo 
