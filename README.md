@@ -11,7 +11,7 @@ An interactive language learning website
 - Check booking status
 <img src="public/images/Screenshot 2023-11-09 at 11.31.40 AM.png">
 
-- Manage your classe either you booked or created
+- Manage your classes either you booked or created
 <img src="public/images/Screenshot 2023-11-09 at 11.27.26 AM.png">
 
 - Edit your personal info and becoma a tutor
