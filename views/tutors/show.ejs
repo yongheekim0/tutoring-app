@@ -34,6 +34,9 @@
       
               <td><% if(!lesson.tutee && lesson.tutor.toString() === user._id.toString()) { %>
                 <a class="btn bg-info p-1" href="#">My class</a>
+                <% } else if(!lesson.tutee && user.isATutor) { %>
+                  <a class="btn bg-primary p-1" href="#">Make a Booking</a>
+                  <p class="text-muted">(Tutee Only)</p>
                 <% } else if (!lesson.tutee){ %>
                   <a class="btn bg-primary p-1" href="/tutors/<%= tutor._id %>/<%= lesson._id %>">Make a Booking</a>
                 <% } else if (lesson.tutee.toString() === user._id.toString()) {%>
