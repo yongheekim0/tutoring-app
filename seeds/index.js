@@ -9,14 +9,20 @@ require('../config/database');
 require('../config/passport');
 
 const seedDB = async () => {
-  await User.deleteMany({})
+  //await User.deleteMany({})
   fakeUsers.forEach( async u => {
     const user = new User(u)
     await user.save()
   })
 
 };
-seedDB()
+//seedDB()
+
+const editDB = async () => {
+  await User.updateMany({isATutor: true}, {'tutor.photo': 'https://upload.wikimedia.org/wikipedia/commons/8/89/Portrait_Placeholder.png'})
+}
+
+editDB()
 
 // const languages = ['English', 'Mandarin', 'French', 'Japanese', 'Korean', 'Spanish']
 
