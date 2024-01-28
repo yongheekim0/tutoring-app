@@ -1,4 +1,4 @@
-# Project [LingoU](https://aqueous-oasis-27733-a8de969a1b47.herokuapp.com/)
+# Project [LingoU](https://lingou.onrender.com/)
 ### A Language Learning App
 
 An interactive language learning website
